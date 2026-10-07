@@ -3,230 +3,566 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UAE Gratuity Calculator | Calculate End of Service Benefits</title>
-    <meta name="description" content="Free online UAE Gratuity Calculator 2026. Calculate your End of Service (EOSB) gratuity pay as per UAE Labor Law accurately.">
+    <title>UAE Gratuity Calculator 2026 | Accurate MOHRE End of Service Pay</title>
+    <meta name="description" content="Calculate your End of Service (EOSB) gratuity pay accurately according to UAE Labor Law (Federal Decree-Law No. 33 of 2021). Free online MOHRE gratuity calculator for Dubai & UAE employees.">
+    <meta name="keywords" content="UAE gratuity calculator, Dubai gratuity calculator, MOHRE end of service calculation, EOSB calculator UAE, UAE labor law gratuity">
+    <link rel="canonical" href="https://quickpercent.github.io/uae-gratuity-calculator/" />
+
+    <!-- Open Graph / Social Media Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="UAE Gratuity Calculator 2026 | MOHRE EOSB Calculation">
+    <meta property="og:description" content="Accurate End of Service (EOSB) Gratuity Calculator under official UAE Labor Law rules. Calculate payout instantly.">
+    
+    <!-- Google Schema / JSON-LD Structured Data for Rich Snippets & AI Overviews -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "name": "UAE Gratuity Calculator",
+          "url": "https://quickpercent.github.io/uae-gratuity-calculator/",
+          "applicationCategory": "FinanceApplication",
+          "operatingSystem": "All",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "AED"
+          },
+          "description": "Calculates End of Service Benefits (EOSB) for employees working in Dubai and the UAE based on the latest MOHRE UAE Labor Law rules."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How is gratuity calculated in UAE?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "In the UAE, gratuity is calculated using basic salary. For 1 to 5 years of service, employees get 21 days' basic salary per year. For service over 5 years, employees get 30 days' basic salary for each additional year."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is gratuity calculated on basic salary or total salary?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Gratuity in the UAE is strictly calculated based on your Basic Salary only. Allowances like housing, transport, and utilities are excluded."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the maximum limit for gratuity in UAE?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The maximum total gratuity payment cannot exceed 2 years' worth of basic salary."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <style>
         :root {
             --primary: #00875a;
-            --primary-dark: #006644;
-            --bg: #f4f7f6;
+            --primary-dark: #005c3e;
+            --accent: #2563eb;
+            --bg: #f8fafc;
             --card-bg: #ffffff;
-            --text: #2d3748;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
             --border: #e2e8f0;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.08);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
 
         body {
             background-color: var(--bg);
-            color: var(--text);
+            color: var(--text-dark);
             line-height: 1.6;
-            padding: 20px 15px;
+            padding-bottom: 40px;
         }
 
-        .container {
-            max-width: 800px;
+        /* Header Navigation */
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            padding: 15px 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge {
+            background: #e6f4ea;
+            color: var(--primary-dark);
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        /* Container & Layout */
+        .main-container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .hero-text {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 700px;
             margin: 0 auto;
         }
 
-        header {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        header h1 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 8px;
-        }
-
-        header p {
-            color: #64748b;
-            font-size: 0.95rem;
-        }
-
-        .calculator-card {
+        /* Calculator App Box */
+        .calculator-wrapper {
             background: var(--card-bg);
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border);
+        }
+
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .calc-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
-        label {
+        .form-group label {
             display: block;
             font-weight: 600;
-            margin-bottom: 8px;
             font-size: 0.9rem;
+            margin-bottom: 6px;
+            color: var(--text-dark);
         }
 
-        input, select {
+        .form-group input, .form-group select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border);
+            padding: 12px 14px;
+            border: 1.5px solid var(--border);
             border-radius: 8px;
             font-size: 1rem;
+            transition: all 0.2s;
             outline: none;
+            background: #fafafa;
         }
 
-        input:focus, select:focus {
+        .form-group input:focus, .form-group select:focus {
             border-color: var(--primary);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(0, 135, 90, 0.15);
         }
 
-        .btn {
-            width: 100%;
+        .btn-calc {
+            grid-column: 1 / -1;
             background: var(--primary);
-            color: #fff;
+            color: white;
             border: none;
-            padding: 14px;
+            padding: 15px;
             border-radius: 8px;
-            font-size: 1.05rem;
-            font-weight: bold;
+            font-size: 1.1rem;
+            font-weight: 700;
             cursor: pointer;
             transition: background 0.2s;
+            margin-top: 10px;
         }
 
-        .btn:hover {
+        .btn-calc:hover {
             background: var(--primary-dark);
         }
 
-        .result-card {
+        /* Result Display Box */
+        .result-container {
             display: none;
-            margin-top: 25px;
-            padding: 20px;
-            background: #e6f4ea;
-            border-left: 5px solid var(--primary);
-            border-radius: 6px;
-        }
-
-        .result-card h3 {
-            font-size: 1rem;
-            color: #1e7e34;
-            margin-bottom: 5px;
-        }
-
-        .result-amount {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--primary-dark);
-        }
-
-        .content-section {
-            background: var(--card-bg);
-            padding: 25px;
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #e6f4ea 0%, #f0fdf4 100%);
+            border: 1.5px solid #bbf7d0;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 25px;
+            margin-top: 20px;
+            animation: fadeIn 0.3s ease-in-out;
         }
 
-        .content-section h2 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-header {
+            font-size: 0.9rem;
             color: var(--primary-dark);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .content-section p, .content-section ul {
+        .result-main-val {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin: 5px 0 15px 0;
+        }
+
+        .result-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 135, 90, 0.2);
+        }
+
+        .detail-item span {
+            display: block;
+            font-size: 0.8rem;
+            color: #166534;
+        }
+
+        .detail-item strong {
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* SEO Content Area */
+        .content-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            margin-top: 10px;
+        }
+
+        .content-card h2 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin: 25px 0 12px 0;
+        }
+
+        .content-card h2:first-child {
+            margin-top: 0;
+        }
+
+        .content-card p {
+            color: var(--text-muted);
             margin-bottom: 15px;
-            font-size: 0.95rem;
-            color: #4a5568;
+            font-size: 1rem;
         }
 
-        .content-section ul {
-            padding-left: 20px;
+        .content-card ul {
+            margin: 0 0 20px 20px;
+            color: var(--text-muted);
+        }
+
+        .content-card li {
+            margin-bottom: 8px;
+        }
+
+        /* Styled Comparison Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        .data-table th, .data-table td {
+            padding: 12px 15px;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .data-table th {
+            background-color: #f1f5f9;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        /* FAQ Accordion Section */
+        .faq-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 16px 20px;
+            background: #f8fafc;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #ffffff;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 16px 20px;
+            max-height: 200px;
         }
 
         footer {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
+            padding: 20px;
+            color: var(--text-muted);
             font-size: 0.85rem;
-            color: #94a3b8;
+            border-top: 1px solid var(--border);
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>UAE Gratuity Calculator</h1>
-        <p>Accurate End of Service (EOSB) Benefits Calculation under UAE Labor Law</p>
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="logo">
+            <span>🇦🇪 UAE Gratuity</span>
+            <span class="badge">Labor Law 2026</span>
+        </a>
+    </div>
+</nav>
+
+<div class="main-container">
+    <header class="hero-text">
+        <h1>UAE Gratuity Calculator 2026</h1>
+        <p>Calculate your End of Service Benefits (EOSB) payout instantly according to official MOHRE UAE Labor Law rules.</p>
     </header>
 
-    <main>
-        <div class="calculator-card">
-            <div class="form-group">
-                <label for="salary">Basic Monthly Salary (AED)</label>
-                <input type="number" id="salary" placeholder="e.g. 10000" min="0">
+    <main class="calculator-wrapper">
+        <form id="gratuityForm" onsubmit="event.preventDefault(); calculateGratuity();">
+            <div class="calc-grid">
+                <div class="form-group">
+                    <label for="salary">Basic Monthly Salary (AED)*</label>
+                    <input type="number" id="salary" placeholder="e.g. 12000" required min="1" step="any">
+                </div>
+
+                <div class="form-group">
+                    <label for="contractType">Contract Type*</label>
+                    <select id="contractType">
+                        <option value="limited">Limited / Fixed-Term Contract</option>
+                        <option value="unlimited">Unlimited Contract</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="reason">Reason for Leaving*</label>
+                    <select id="reason">
+                        <option value="resignation">Resignation (Left Job)</option>
+                        <option value="termination">Termination by Employer</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="years">Total Service Period (Years)*</label>
+                    <input type="number" id="years" placeholder="e.g. 3.5" required min="0.1" step="0.1">
+                </div>
+
+                <button type="submit" class="btn-calc">Calculate My Gratuity Pay</button>
             </div>
+        </form>
 
-            <div class="form-group">
-                <label for="years">Total Service Duration (Years)</label>
-                <input type="number" id="years" placeholder="e.g. 3.5" step="0.1" min="0">
+        <div class="result-container" id="resultBox">
+            <div class="result-header">Estimated End of Service Payout</div>
+            <div class="result-main-val" id="finalAmount">AED 0.00</div>
+            
+            <div class="result-details-grid">
+                <div class="detail-item">
+                    <span>Daily Basic Salary:</span>
+                    <strong id="dailyWage">AED 0.00</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Eligible Days Calculated:</span>
+                    <strong id="eligibleDays">0 Days</strong>
+                </div>
+                <div class="detail-item">
+                    <span>Max Payout Cap Limit:</span>
+                    <strong id="maxCap">AED 0.00</strong>
+                </div>
             </div>
+        </div>
+    </main>
 
-            <button class="btn" onclick="calculateGratuity()">Calculate Gratuity</button>
+    <article class="content-card">
+        <h2>Understanding UAE End of Service Gratuity (EOSB)</h2>
+        <p>In the United Arab Emirates, End of Service Benefit (EOSB) or gratuity is a statutory monetary compensation provided to employees upon completing their employment contract under <strong>UAE Federal Decree-Law No. 33 of 2021</strong>.</p>
 
-            <div class="result-card" id="resultCard">
-                <h3>Estimated Gratuity Amount:</h3>
-                <div class="result-amount" id="resultAmount">AED 0.00</div>
+        <h2>UAE Gratuity Calculation Formula</h2>
+        <p>Gratuity is computed strictly on the employee's <strong>Basic Salary</strong> (excluding allowances such as transport, housing, and utilities). The formula operates as follows:</p>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Service Duration</th>
+                    <th>Entitlement Rate per Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Less than 1 Year</td>
+                    <td>0 Days (No gratuity entitlement)</td>
+                </tr>
+                <tr>
+                    <td>1 Year to 5 Years</td>
+                    <td>21 Days' Basic Salary per Year</td>
+                </tr>
+                <tr>
+                    <td>More than 5 Years</td>
+                    <td>30 Days' Basic Salary for each additional Year</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Key Provisions & Rules (MOHRE Guidelines)</h2>
+        <ul>
+            <li><strong>Maximum Limit:</strong> The total accumulated gratuity payout cannot exceed two years' (24 months) worth of basic salary.</li>
+            <li><strong>Pro-Rata Calculation:</strong> Fractions of a year are calculated proportionally provided the employee has completed at least 1 full year of continuous service.</li>
+            <li><strong>Unpaid Leaves:</strong> Any days taken as unpaid leave are excluded from the total duration of service calculation.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions (FAQs)</h2>
+
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span>How is gratuity calculated if I resign before 1 year?</span>
+                <span>▼</span>
+            </button>
+            <div class="faq-answer">
+                <p>According to UAE labor laws, if an employee resigns or is terminated before completing one continuous year of service, they are not entitled to any end-of-service gratuity pay.</p>
             </div>
         </div>
 
-        <article class="content-section">
-            <h2>How UAE End-of-Service Gratuity is Calculated</h2>
-            <p>According to UAE Federal Decree-Law No. 33 of 2021, workers completing at least one full year of continuous service are entitled to end-of-service gratuity:</p>
-            <ul>
-                <li><strong>1 to 5 Years of Service:</strong> 21 days' basic salary for each year of service.</li>
-                <li><strong>More than 5 Years of Service:</strong> 30 days' basic salary for each additional year beyond 5 years.</li>
-                <li><strong>Maximum Limit:</strong> Total gratuity cannot exceed 2 years' total salary.</li>
-            </ul>
-        </article>
-    </main>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span>Is gratuity calculated on total salary or basic salary?</span>
+                <span>▼</span>
+            </button>
+            <div class="faq-answer">
+                <p>Gratuity is calculated exclusively on your <strong>Basic Salary</strong>. Other components such as housing allowance, transport allowance, bonuses, or overtime payments are strictly excluded from the calculation.</p>
+            </div>
+        </div>
 
-    <footer>
-        <p>&copy; 2026 UAE Gratuity Calculator. All rights reserved.</p>
-    </footer>
+        <div class="faq-item">
+            <button class="faq-question" onclick="toggleFaq(this)">
+                <span>What is the maximum limit for gratuity in the UAE?</span>
+                <span>▼</span>
+            </button>
+            <div class="faq-answer">
+                <p>The total end of service benefit payable to an employee cannot exceed two years' (24 months) total basic salary regardless of how many years they have served.</p>
+            </div>
+        </div>
+    </article>
 </div>
+
+<footer>
+    <p>&copy; 2026 UAE Gratuity Calculator. Compliant with UAE MOHRE Labor Law regulations.</p>
+</footer>
 
 <script>
     function calculateGratuity() {
         const salary = parseFloat(document.getElementById('salary').value);
         const years = parseFloat(document.getElementById('years').value);
-        const resultCard = document.getElementById('resultCard');
-        const resultAmount = document.getElementById('resultAmount');
+        const resultBox = document.getElementById('resultBox');
 
         if (isNaN(salary) || isNaN(years) || salary <= 0 || years < 1) {
-            alert("Please enter a valid salary and at least 1 year of service.");
-            resultCard.style.display = "none";
+            alert("To be eligible for end of service gratuity, continuous service must be at least 1 year.");
+            resultBox.style.display = "none";
             return;
         }
 
         const dailyWage = salary / 30;
-        let gratuity = 0;
+        let totalDays = 0;
 
         if (years <= 5) {
-            gratuity = years * 21 * dailyWage;
+            totalDays = years * 21;
         } else {
-            const firstFiveYears = 5 * 21 * dailyWage;
-            const remainingYears = (years - 5) * 30 * dailyWage;
-            gratuity = firstFiveYears + remainingYears;
+            totalDays = (5 * 21) + ((years - 5) * 30);
         }
 
-        // Cap at 2 years of basic salary
-        const maxLimit = salary * 24;
-        if (gratuity > maxLimit) {
-            gratuity = maxLimit;
+        let gratuity = totalDays * dailyWage;
+        const maxCapLimit = salary * 24; // 2 years basic salary cap
+
+        if (gratuity > maxCapLimit) {
+            gratuity = maxCapLimit;
         }
 
-        resultAmount.innerText = `AED ${gratuity.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-        resultCard.style.display = "block";
+        // Populate display
+        document.getElementById('finalAmount').innerText = `AED ${gratuity.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        document.getElementById('dailyWage').innerText = `AED ${dailyWage.toFixed(2)}`;
+        document.getElementById('eligibleDays').innerText = `${totalDays.toFixed(1)} Days`;
+        document.getElementById('maxCap').innerText = `AED ${maxCapLimit.toLocaleString('en-US')}`;
+
+        resultBox.style.display = "block";
+    }
+
+    function toggleFaq(button) {
+        const item = button.parentElement;
+        item.classList.toggle('active');
     }
 </script>
 
