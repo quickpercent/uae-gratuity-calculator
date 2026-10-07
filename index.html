@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAE Gratuity Calculator | Calculate End of Service Benefits</title>
+    <meta name="description" content="Free online UAE Gratuity Calculator 2026. Calculate your End of Service (EOSB) gratuity pay as per UAE Labor Law accurately.">
+    <style>
+        :root {
+            --primary: #00875a;
+            --primary-dark: #006644;
+            --bg: #f4f7f6;
+            --card-bg: #ffffff;
+            --text: #2d3748;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 20px 15px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        .calculator-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary);
+        }
+
+        .btn {
+            width: 100%;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .result-card {
+            display: none;
+            margin-top: 25px;
+            padding: 20px;
+            background: #e6f4ea;
+            border-left: 5px solid var(--primary);
+            border-radius: 6px;
+        }
+
+        .result-card h3 {
+            font-size: 1rem;
+            color: #1e7e34;
+            margin-bottom: 5px;
+        }
+
+        .result-amount {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+        }
+
+        .content-section {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .content-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--primary-dark);
+        }
+
+        .content-section p, .content-section ul {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        .content-section ul {
+            padding-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>UAE Gratuity Calculator</h1>
+        <p>Accurate End of Service (EOSB) Benefits Calculation under UAE Labor Law</p>
+    </header>
+
+    <main>
+        <div class="calculator-card">
+            <div class="form-group">
+                <label for="salary">Basic Monthly Salary (AED)</label>
+                <input type="number" id="salary" placeholder="e.g. 10000" min="0">
+            </div>
+
+            <div class="form-group">
+                <label for="years">Total Service Duration (Years)</label>
+                <input type="number" id="years" placeholder="e.g. 3.5" step="0.1" min="0">
+            </div>
+
+            <button class="btn" onclick="calculateGratuity()">Calculate Gratuity</button>
+
+            <div class="result-card" id="resultCard">
+                <h3>Estimated Gratuity Amount:</h3>
+                <div class="result-amount" id="resultAmount">AED 0.00</div>
+            </div>
+        </div>
+
+        <article class="content-section">
+            <h2>How UAE End-of-Service Gratuity is Calculated</h2>
+            <p>According to UAE Federal Decree-Law No. 33 of 2021, workers completing at least one full year of continuous service are entitled to end-of-service gratuity:</p>
+            <ul>
+                <li><strong>1 to 5 Years of Service:</strong> 21 days' basic salary for each year of service.</li>
+                <li><strong>More than 5 Years of Service:</strong> 30 days' basic salary for each additional year beyond 5 years.</li>
+                <li><strong>Maximum Limit:</strong> Total gratuity cannot exceed 2 years' total salary.</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 UAE Gratuity Calculator. All rights reserved.</p>
+    </footer>
+</div>
+
+<script>
+    function calculateGratuity() {
+        const salary = parseFloat(document.getElementById('salary').value);
+        const years = parseFloat(document.getElementById('years').value);
+        const resultCard = document.getElementById('resultCard');
+        const resultAmount = document.getElementById('resultAmount');
+
+        if (isNaN(salary) || isNaN(years) || salary <= 0 || years < 1) {
+            alert("Please enter a valid salary and at least 1 year of service.");
+            resultCard.style.display = "none";
+            return;
+        }
+
+        const dailyWage = salary / 30;
+        let gratuity = 0;
+
+        if (years <= 5) {
+            gratuity = years * 21 * dailyWage;
+        } else {
+            const firstFiveYears = 5 * 21 * dailyWage;
+            const remainingYears = (years - 5) * 30 * dailyWage;
+            gratuity = firstFiveYears + remainingYears;
+        }
+
+        // Cap at 2 years of basic salary
+        const maxLimit = salary * 24;
+        if (gratuity > maxLimit) {
+            gratuity = maxLimit;
+        }
+
+        resultAmount.innerText = `AED ${gratuity.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+        resultCard.style.display = "block";
+    }
+</script>
+
+</body>
+</html>
